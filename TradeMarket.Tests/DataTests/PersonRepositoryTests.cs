@@ -15,7 +15,7 @@ namespace TradeMarket.Tests.DataTests
     {
         [TestCase(1)]
         [TestCase(2)]
-        public async Task PersonRepository_GetByIdAsync_ReturnsSingleValue(int id)
+        public async Task PersonRepositoryGetByIdAsyncReturnsSingleValue(int id)
         {
             using var context = new TradeMarketDbContext(UnitTestHelper.GetUnitTestDbOptions());
 
@@ -28,7 +28,7 @@ namespace TradeMarket.Tests.DataTests
         }
 
         [Test]
-        public async Task PersonRepository_GetAllAsync_ReturnsAllValues()
+        public async Task PersonRepositoryGetAllAsyncReturnsAllValues()
         {
             using var context = new TradeMarketDbContext(UnitTestHelper.GetUnitTestDbOptions());
 
@@ -39,7 +39,7 @@ namespace TradeMarket.Tests.DataTests
         }
 
         [Test]
-        public async Task PersonRepository_AddAsync_AddsValueToDatabase()
+        public async Task PersonRepositoryAddAsyncAddsValueToDatabase()
         {
             using var context = new TradeMarketDbContext(UnitTestHelper.GetUnitTestDbOptions());
 
@@ -53,7 +53,7 @@ namespace TradeMarket.Tests.DataTests
         }
 
         [Test]
-        public async Task PersonRepository_DeleteByIdAsync_DeletesEntity()
+        public async Task PersonRepositoryDeleteByIdAsyncDeletesEntity()
         {
             using var context = new TradeMarketDbContext(UnitTestHelper.GetUnitTestDbOptions());
 
@@ -66,7 +66,7 @@ namespace TradeMarket.Tests.DataTests
         }
 
         [Test]
-        public async Task PersonRepository_Update_UpdatesEntity()
+        public async Task PersonRepositoryUpdateUpdatesEntity()
         {
             using var context = new TradeMarketDbContext(UnitTestHelper.GetUnitTestDbOptions());
 

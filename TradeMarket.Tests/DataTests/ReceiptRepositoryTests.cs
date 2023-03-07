@@ -15,7 +15,7 @@ namespace TradeMarket.Tests.DataTests
     {
         [TestCase(1)]
         [TestCase(3)]
-        public async Task ReceiptRepository_GetByIdAsync_ReturnsSingleValue(int id)
+        public async Task ReceiptRepositoryGetByIdAsyncReturnsSingleValue(int id)
         {
             using var context = new TradeMarketDbContext(UnitTestHelper.GetUnitTestDbOptions());
 
@@ -28,7 +28,7 @@ namespace TradeMarket.Tests.DataTests
         }
 
         [Test]
-        public async Task ReceiptRepository_GetAllAsync_ReturnsAllValues()
+        public async Task ReceiptRepositoryGetAllAsyncReturnsAllValues()
         {
             using var context = new TradeMarketDbContext(UnitTestHelper.GetUnitTestDbOptions());
 
@@ -39,7 +39,7 @@ namespace TradeMarket.Tests.DataTests
         }
 
         [Test]
-        public async Task ReceiptRepository_AddAsync_AddsValueToDatabase()
+        public async Task ReceiptRepositoryAddAsyncAddsValueToDatabase()
         {
             using var context = new TradeMarketDbContext(UnitTestHelper.GetUnitTestDbOptions());
 
@@ -53,7 +53,7 @@ namespace TradeMarket.Tests.DataTests
         }
 
         [Test]
-        public async Task ReceiptRepository_DeleteByIdAsync_DeletesEntity()
+        public async Task ReceiptRepositoryDeleteByIdAsyncDeletesEntity()
         {
             using var context = new TradeMarketDbContext(UnitTestHelper.GetUnitTestDbOptions());
 
@@ -66,7 +66,7 @@ namespace TradeMarket.Tests.DataTests
         }
 
         [Test]
-        public async Task ReceiptRepository_Update_UpdatesEntity()
+        public async Task ReceiptRepositoryUpdateUpdatesEntity()
         {
             using var context = new TradeMarketDbContext(UnitTestHelper.GetUnitTestDbOptions());
 
@@ -92,7 +92,7 @@ namespace TradeMarket.Tests.DataTests
         }
 
         [Test]
-        public async Task ReceiptRepository_GetByIdWithDetailsAsync_ReturnsWithIncludedEntities()
+        public async Task ReceiptRepositoryGetByIdWithDetailsAsyncReturnsWithIncludedEntities()
         {
             using var context = new TradeMarketDbContext(UnitTestHelper.GetUnitTestDbOptions());
 
@@ -119,7 +119,7 @@ namespace TradeMarket.Tests.DataTests
         }
 
         [Test]
-        public async Task ReceiptRepository_GetAllWithDetailsAsync_ReturnsWithIncludedEntities()
+        public async Task ReceiptRepositoryGetAllWithDetailsAsyncReturnsWithIncludedEntities()
         {
             using var context = new TradeMarketDbContext(UnitTestHelper.GetUnitTestDbOptions());
 
@@ -134,10 +134,10 @@ namespace TradeMarket.Tests.DataTests
                 Is.EqualTo(ExpectedReceiptsDetails).Using(new ReceiptDetailEqualityComparer()), message: "GetAllWithDetailsAsync method doesnt't return included entities");
 
             Assert.That(receipts.SelectMany(i => i.ReceiptDetails).Select(i => i.Product).Distinct().OrderBy(i => i.Id),
-                Is.EqualTo(ExpectedProducts).Using(new ProductEqualityComparer()), message: "GetByIdWithDetailsAsync method doesnt't return included entities");
+                Is.EqualTo(ExpectedProducts).Using(new ProductEqualityComparer()), message: "GetAllWithDetailsAsync method doesnt't return included entities");
 
             Assert.That(receipts.SelectMany(i => i.ReceiptDetails).Select(i => i.Product.Category).Distinct().OrderBy(i => i.Id),
-                Is.EqualTo(ExpectedProductCategories).Using(new ProductCategoryEqualityComparer()), message: "GetByIdWithDetailsAsync method doesnt't return included entities");
+                Is.EqualTo(ExpectedProductCategories).Using(new ProductCategoryEqualityComparer()), message: "GetAllWithDetailsAsync method doesnt't return included entities");
 
             Assert.That(receipts.Select(i => i.Customer).Distinct().OrderBy(i => i.Id),
                 Is.EqualTo(ExpectedCustomers).Using(new CustomerEqualityComparer()), message: "GetAllWithDetailsAsync method doesnt't return included entities");

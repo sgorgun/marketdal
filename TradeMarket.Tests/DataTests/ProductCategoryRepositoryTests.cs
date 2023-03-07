@@ -14,7 +14,7 @@ namespace TradeMarket.Tests.DataTests
     {
         [TestCase(1)]
         [TestCase(2)]
-        public async Task ProductCategoryRepository_GetByIdAsync_ReturnsSingleValue(int id)
+        public async Task ProductCategoryRepositoryGetByIdAsyncReturnsSingleValue(int id)
         {
             using var context = new TradeMarketDbContext(UnitTestHelper.GetUnitTestDbOptions());
 
@@ -27,7 +27,7 @@ namespace TradeMarket.Tests.DataTests
         }
 
         [Test]
-        public async Task ProductCategoryRepository_GetAllAsync_ReturnsAllValues()
+        public async Task ProductCategoryRepositoryGetAllAsyncReturnsAllValues()
         {
             using var context = new TradeMarketDbContext(UnitTestHelper.GetUnitTestDbOptions());
 
@@ -38,7 +38,7 @@ namespace TradeMarket.Tests.DataTests
         }
 
         [Test]
-        public async Task ProductCategoryRepository_AddAsync_AddsValueToDatabase()
+        public async Task ProductCategoryRepositoryAddAsyncAddsValueToDatabase()
         {
             using var context = new TradeMarketDbContext(UnitTestHelper.GetUnitTestDbOptions());
 
@@ -52,7 +52,7 @@ namespace TradeMarket.Tests.DataTests
         }
 
         [Test]
-        public async Task ProductCategoryRepository_DeleteByIdAsync_DeletesEntity()
+        public async Task ProductCategoryRepositoryDeleteByIdAsyncDeletesEntity()
         {
             using var context = new TradeMarketDbContext(UnitTestHelper.GetUnitTestDbOptions());
 
@@ -65,7 +65,7 @@ namespace TradeMarket.Tests.DataTests
         }
 
         [Test]
-        public async Task ProductCategoryRepository_Update_UpdatesEntity()
+        public async Task ProductCategoryRepositoryUpdateUpdatesEntity()
         {
             using var context = new TradeMarketDbContext(UnitTestHelper.GetUnitTestDbOptions());
 
