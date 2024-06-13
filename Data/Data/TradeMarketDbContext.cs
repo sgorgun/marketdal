@@ -14,9 +14,5 @@ namespace Data.Data
         public DbSet<ProductCategory> ProductCategories { get; set; }
         public DbSet<Receipt> Receipts { get; set; }
         public DbSet<ReceiptDetail> ReceiptsDetails { get; set; }
-
-
-        //TODO: write Fluent API configuration
-
     }
 }
