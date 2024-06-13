@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Data.Entities
 {
     
-internal class Product : BaseEntity
+    public class Product : BaseEntity
     {
         [ForeignKey(nameof(Category))]
         public int ProductCategoryId { get; set; }

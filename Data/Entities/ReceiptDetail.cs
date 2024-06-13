@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Data.Entities
 {
-    internal class ReceiptDetail : BaseEntity
+    public class ReceiptDetail : BaseEntity
     {
         [ForeignKey(nameof(Receipt))]
         public int ReceiptId { get; set; }
