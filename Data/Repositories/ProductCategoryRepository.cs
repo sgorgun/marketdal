@@ -30,11 +30,11 @@ namespace Data.Repositories
 
         public async Task DeleteByIdAsync(int id)
         {
-            var productCategory = await _context.ProductCategories.FirstOrDefaultAsync(c => c.Id == id);
+            var productCategory = await GetByIdAsync(id);
 
             if (productCategory != null)
             {
-                _context.ProductCategories.Remove(productCategory);
+                Delete(productCategory);
             }
         }
 

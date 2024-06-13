@@ -13,10 +13,12 @@ namespace Data.Repositories
     public class ProductRepository : IProductRepository
     {
         private readonly TradeMarketDbContext _context;
+
         public ProductRepository(TradeMarketDbContext context)
         {
             _context = context;
         }
+
         public async Task AddAsync(Product entity)
         {
             await _context.Products.AddAsync(entity);
@@ -29,10 +31,10 @@ namespace Data.Repositories
 
         public async Task DeleteByIdAsync(int id)
         {
-            var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+            var product = await GetByIdAsync(id);
             if (product != null)
             {
-                _context.Products.Remove(product);
+                Delete(product);
             }
         }
 
@@ -52,7 +54,7 @@ namespace Data.Repositories
 
         public async Task<Product> GetByIdAsync(int id)
         {
-            return await _context.Products.FirstOrDefaultAsync(p =>p.Id == id);
+            return await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<Product> GetByIdWithDetailsAsync(int id)

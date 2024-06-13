@@ -33,7 +33,7 @@ namespace Data.Repositories
             var receiptDetail = await GetByIdAsync(id);
             if (receiptDetail != null)
             {
-                Delete(receiptDetail); 
+                Delete(receiptDetail);
             }
         }
 
@@ -45,11 +45,8 @@ namespace Data.Repositories
         public async Task<IEnumerable<ReceiptDetail>> GetAllWithDetailsAsync()
         {
             return await _context.ReceiptsDetails
-                .Include(d => d.Product)
-                .ThenInclude(p => p.Category)
-                .Include(d => d.Receipt)
-                .ThenInclude(r => r.Customer)
-                .ThenInclude(c => c.Person)
+                .Include(d => d.Product.Category)
+                .Include(d => d.Receipt.Customer.Person)
                 .ToListAsync();
         }
 

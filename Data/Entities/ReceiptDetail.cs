@@ -14,7 +14,7 @@ namespace Data.Entities
         [ForeignKey(nameof(Product))]
         public int ProductId { get; set; }
         public decimal DiscountUnitPrice { get; set; }
-        decimal UnitPrice { get; set; }
+        public decimal UnitPrice { get; set; }
         public int Quantity { get; set; }
 
         public Receipt Receipt { get; set; }

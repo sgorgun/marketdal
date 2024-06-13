@@ -31,10 +31,10 @@ namespace Data.Repositories
 
         public async Task DeleteByIdAsync(int id)
         {
-            var person = await _context.Persons.FirstOrDefaultAsync(p => p.Id == id);
+            var person = await GetByIdAsync(id);
             if (person != null)
             {
-                _context.Persons.Remove(person);
+                Delete(person);
             }
         }
 

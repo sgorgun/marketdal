@@ -13,6 +13,7 @@ namespace Data.Repositories
     public class CustomerRepository : ICustomerRepository
     {
         private readonly TradeMarketDbContext _context;
+
         public CustomerRepository(TradeMarketDbContext context)
         {
             _context = context;
@@ -30,10 +31,10 @@ namespace Data.Repositories
 
         public async Task DeleteByIdAsync(int id)
         {
-            var customer = await _context.Customers.FirstOrDefaultAsync(c => c.Id == id);
+            var customer = await GetByIdAsync(id);
             if (customer != null)
             {
-                _context.Customers.Remove(customer);
+                Delete(customer);
             }
         }
 

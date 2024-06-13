@@ -14,6 +14,7 @@ namespace Data.Repositories
     public class ReceiptRepository : IReceiptRepository
     {
         private readonly TradeMarketDbContext _context;
+
         public ReceiptRepository(TradeMarketDbContext context)
         {
             _context = context;
@@ -47,10 +48,8 @@ namespace Data.Repositories
         {
             return await _context.Receipts
                 .Include(r => r.ReceiptDetails)
-                .ThenInclude(rd => rd.Product)
-                .ThenInclude(p => p.Category)
-                .Include(rd => rd.Customer)
-                .ThenInclude(c => c.Person)
+                .ThenInclude(d => d.Product.Category)
+                .Include(r => r.Customer.Person)
                 .ToListAsync();
         }
 
@@ -63,11 +62,9 @@ namespace Data.Repositories
         {
             return await _context.Receipts
                 .Include(r => r.ReceiptDetails)
-                .ThenInclude(rd => rd.Product)
-                .ThenInclude(p => p.Category)
-                .Include(rd => rd.Customer)
-                .ThenInclude(c => c.Person)
-                .FirstOrDefaultAsync(rd => rd.Id == id);
+                .ThenInclude(d => d.Product.Category)
+                .Include(r => r.Customer.Person)
+                .FirstOrDefaultAsync(d => d.Id == id);
         }
 
         public void Update(Receipt entity)
